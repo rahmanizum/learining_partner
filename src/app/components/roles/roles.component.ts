@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component,OnInit,inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { IRole } from '../../model/class/interface/role';
 
 @Component({
   selector: 'app-roles',
@@ -8,19 +10,18 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css'
 })
-export class RolesComponent {
-  firstName : string = "Vivek";
-  angularVersion = "18.2.0";
-  version : number = 18.2;
-  isActive : boolean = true;
-  currentDate : Date = new Date();
-  inputType : string = "button";
-  selectedState : string = "";
+export class RolesComponent  implements OnInit {
+  roleList: IRole[] = [];
 
-  showWelcomeAlert () {
-    alert("Welcome");
+  http = inject(HttpClient);
+  ngOnInit(): void {
+    this.getALlRoles()
+
   }
-  showMessage(message: string) {
-    alert(message);
+
+  getALlRoles() {
+    this.http.get('https://freeapi.miniprojectideas.com/api/ClientStrive/GetAllRoles').subscribe((res : any) => {
+      this.roleList = res.data;
+    })
   }
 }
