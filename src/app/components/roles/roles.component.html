@@ -3,13 +3,15 @@
         <table class="table table-striped border">
             <thead>
                 <tr>
+                    <th>Sr No</th>
                     <th>Role Id</th>
                     <th>Role</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let role of roleList">
-                    <td>{{role.roleId}}</td>
+                <tr *ngFor="let role of roleList; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>SC0{{role.roleId}}</td>
                     <td>{{role.role}}</td>
                 </tr>
             </tbody>
