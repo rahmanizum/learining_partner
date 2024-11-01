@@ -1,12 +1,18 @@
-<div class="row">
-    <div class="col-4">
-        <ul>
-            <li *ngFor="let role of roleList">{{role.role}}</li>
-        </ul>
-    </div>
-    <div class="col-4">
-        <select class="form-control">
-            <option *ngFor="let role of roleList" [value]="role.roleId">{{role.role}}</option>
-        </select>
+<div class="row align-items-center justify-content-center">
+    <div class="col-10">
+        <table class="table table-striped border">
+            <thead>
+                <tr>
+                    <th>Role Id</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let role of roleList">
+                    <td>{{role.roleId}}</td>
+                    <td>{{role.role}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
