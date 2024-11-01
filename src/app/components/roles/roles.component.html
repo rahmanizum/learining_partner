@@ -10,14 +10,25 @@
 </div>
 <div class="container  pt-3 ">
     <div class="row">
-        <div class="col-6">
+        <div class="col-3">
             <form class="form-inline my-2 my-lg-0 form-group">
                 <input type="text"[value]="firstName" class="form-control">
             </form>
 
         </div>
-        <div class="col-6">
+        <div class="col-3">
             <input [type]="inputType"/>
         </div>
+        <div class="col-3">
+            <input type="text" [(ngModel)]="firstName"/>
+        </div>
+        <div class="col-3">
+            <select [(ngModel)] = "selectedState" class="form-control">
+                <option value = "MH">Maharashtra</option>
+                <option value = "GJ">Gujarat</option>
+                <option value = "UP">Uttar Pradesh</option>
+                <option value = "RJ">Rajasthan</option>
+            </select>
+            <p>Selected state is {{selectedState}}</p>
     </div>
 </div>
