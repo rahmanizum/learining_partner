@@ -8,3 +8,16 @@
     <p>Angular version is {{isActive}}</p>
     <p>Today date is  {{currentDate.toDateString() }}</p>
 </div>
+<div class="container  pt-3 ">
+    <div class="row">
+        <div class="col-6">
+            <form class="form-inline my-2 my-lg-0 form-group">
+                <input type="text"[value]="firstName" class="form-control">
+            </form>
+
+        </div>
+        <div class="col-6">
+            <input [type]="inputType"/>
+        </div>
+    </div>
+</div>
