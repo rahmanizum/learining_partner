@@ -73,7 +73,9 @@ export class ClientProjectComponent implements OnInit {
       this.onResetForm();
     })
   }
-  onResetForm() {}
+  onResetForm() {
+    this.projectForm.reset();
+  }
   onDeleteProject(projectId: number) {}
   onEditProject(project: ClientProject) {}
 

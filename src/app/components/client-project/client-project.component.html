@@ -9,18 +9,20 @@
                     <thead>
                         <tr>
                             <th>Sr No</th>
-                            <th>Employee Name</th>
-                            <th>Employee ID</th>
-                            <th>Employee Code</th>
+                            <th>Project Name</th>
+                            <th>Start Date</th>
+                            <th>Expected End Date</th>
+                            <th>Client Name</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let project of projectList; index as i">
                             <td>{{ i + 1 }}</td>
-                            <td>{{ project.empName }}</td>
-                            <td>{{ project.empId }}</td>
-                            <td>{{ project.empCode }}</td>
+                            <td>{{ project.projectName }}</td>
+                            <td>{{ project.startDate | date: 'yyyy-MM-dd'}}</td>
+                            <td>{{ project.expectedEndDate | date: 'yyyy-MM-dd'}}</td>
+                            <td>{{ project.clientName }}</td>
                             <td>
                                 <button class="btn btn-danger me-2" (click)="onDeleteProject(project.clientProjectId)">Delete</button>
                                 <button class="btn btn-success" (click)="onEditProject(project)">Edit</button>
@@ -103,7 +105,7 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-6">
-                                <button class="btn btn-primary w-100" (click)="onSaveProject()">
+                                <button class="btn btn-primary w-100" [disabled]="projectForm.invalid" (click)="onSaveProject()">
                                    Save
                                 </button>
                             </div>
