@@ -1,1 +1,95 @@
-<p>client works!</p>
+<div class="row p-3">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-headrer bg-success p-1 text-center">
+                client List
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>Company Name</th>
+                                    <th>Person Name</th>
+                                    <th>Cotact Number</th>
+                                    <th>City</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr *ngFor="let client of clientList; let i = index">
+                                    <td>{{i+1}}</td>
+                                    <td>SC0{{client.clientId}}</td>
+                                    <td>{{client.clientName}}</td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-headrer bg-success p-1 text-center">
+                New client
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="">Person Name</label>
+                        <input type="text" [(ngModel)]="clientObj.contactPersonName" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Company Name</label>
+                        <input type="text" [(ngModel)]="clientObj.companyName" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Cotact Number</label>
+                        <input type="tel" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">City</label>
+                        <input type="text" [(ngModel)]="clientObj.city" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">State</label>
+                        <input type="text" [(ngModel)]="clientObj.state" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Pincode</label>
+                        <input type="number"[(ngModel)]="clientObj.pincode" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Address</label>
+                        <textarea name="" id="" cols="30" rows="3"[(ngModel)] = "clientObj.address" class="form-control"></textarea>
+                    </div>
+                    <div class="col-6">
+                        <label for="">Employee Strength</label>
+                        <input type="text" [(ngModel)]="clientObj.employeeStrength" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">GST No</label>
+                        <input type="text" [(ngModel)]="clientObj.gstNo" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="">Registration No</label>
+                        <input type="text" [(ngModel)]="clientObj.regNo" class="form-control">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <button class="btn btn-success w-100" (click)="onSaveClient()">Save</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-danger w-100">Reset</button>
+                        </div>
+                    </div>
+                    
+
+
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component,OnInit,inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { APIResponseModel, IRole } from '../../model/class/interface/role';
+import { APIResponseModel, IRole } from '../../model/interface/role';
 import { CommonModule } from '@angular/common';
 
 @Component({
