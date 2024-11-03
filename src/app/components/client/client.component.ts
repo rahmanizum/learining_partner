@@ -54,4 +54,8 @@ export class ClientComponent implements OnInit {
   onEditClient(clientObj: Client) {
     this.clientObj = clientObj;
   }
+
+  onResetForm() {
+    this.clientObj = new Client();
+  }
 }
