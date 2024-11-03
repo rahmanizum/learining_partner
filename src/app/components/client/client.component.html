@@ -49,7 +49,15 @@
                 <div class="row">
                     <div class="col-6">
                         <label for="">Person Name</label>
-                        <input type="text" [(ngModel)]="clientObj.contactPersonName" class="form-control">
+                        <input type="text" #personName="ngModel" minlength="3" [(ngModel)]="clientObj.contactPersonName" class="form-control" required>
+                        <div class="text-danger">
+                            @if(personName.invalid && personName.touched){
+                                <span>Person Name is required</span>
+                            }@if(personName.errors?.['minlength']){
+                                <span>Person Name must be at least 3 characters long</span>
+                            }                          
+                        </div>
+                        
                     </div>
                     <div class="col-6">
                         <label for="">Company Name</label>
