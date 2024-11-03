@@ -1,17 +1,25 @@
 <div class="row container">
-    @for(item of designationList; track $index){
-        <div class="col-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">{{item.designation}}</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.{{item.designationId}}</p>
-                  <div class="d-flex gap-2">
-                    <a href="#" class="btn btn-primary">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
-                </div>                
-                </div>
-              </div>        
+    @if(isLoading){
+        <div class="col-12 text-center align-items-center">
+            Loading...........
         </div>
+    }@else {
+        @for(item of designationList; track $index){
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{item.designation}}</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.{{item.designationId}}</p>
+                      <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-primary">Edit</a>
+                        <a href="#" class="btn btn-danger">Delete</a>
+                    </div>                
+                    </div>
+                  </div>        
+            </div>
+        }
     }
+
+
 
 </div>
