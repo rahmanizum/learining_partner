@@ -18,11 +18,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- <tr *ngFor="let client of clientList; let i = index">
-                                    <td>{{i+1}}</td>
-                                    <td>SC0{{client.clientId}}</td>
-                                    <td>{{client.clientName}}</td>
-                                </tr> -->
+                                @for(client of clientList; track $index){
+                                    <tr>
+                                        <td>{{$index+1}}</td>
+                                        <td>{{client.companyName}}</td>
+                                        <td>{{client.contactPersonName}}</td>
+                                        <td>{{client.contactNo}}</td>
+                                        <td>{{client.city}}</td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -48,7 +52,7 @@
                     </div>
                     <div class="col-6">
                         <label for="">Cotact Number</label>
-                        <input type="tel" class="form-control">
+                        <input type="tel" [(ngModel)]="clientObj.contactNo" class="form-control">
                     </div>
                     <div class="col-6">
                         <label for="">City</label>
