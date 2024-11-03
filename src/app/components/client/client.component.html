@@ -46,69 +46,69 @@
                 New client
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <label for="">Person Name</label>
-                        <input type="text" #personName="ngModel" minlength="3" [(ngModel)]="clientObj.contactPersonName" class="form-control" required>
-                        <div class="text-danger">
-                            @if(personName.invalid && personName.touched){
-                                <span>Person Name is required</span>
-                            }@if(personName.errors?.['minlength']){
-                                <span>Person Name must be at least 3 characters long</span>
-                            }                          
+                <form #clientForm="ngForm">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="personName">Person Name</label>
+                            <input type="text" id="personName" name="personName" #personName="ngModel" minlength="3" [(ngModel)]="clientObj.contactPersonName" class="form-control" required>
+                            <div class="text-danger">
+                                @if(personName.invalid && personName.touched){
+                                    <span>Person Name is required</span>
+                                }@if(personName.errors?.['minlength']){
+                                    <span>Person Name must be at least 3 characters long</span>
+                                }                          
+                            </div>
+                            
+                        </div>
+                        <div class="col-6">
+                            <label for="companyName">Company Name</label>
+                            <input type="text" id="companyName" name="companyName" [(ngModel)]="clientObj.companyName" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="contactNo">Cotact Number</label>
+                            <input type="tel" id="contactNo" name="contactNo" [(ngModel)]="clientObj.contactNo" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" [(ngModel)]="clientObj.city" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="state">State</label>
+                            <input type="text" id="state" name="state" [(ngModel)]="clientObj.state" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="pincode">Pincode</label>
+                            <input type="number" id="pincode" name="pincode" [(ngModel)]="clientObj.pincode" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="address">Address</label>
+                            <textarea name="address" id="address" cols="30" rows="3" [(ngModel)] = "clientObj.address" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="employeeStrength">Employee Strength</label>
+                            <input type="text" id="employeeStrength" name="employeeStrength" [(ngModel)]="clientObj.employeeStrength" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="gstNo">GST No</label>
+                            <input type="text" id="gstNo" name="gstNo" [(ngModel)]="clientObj.gstNo" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="regNo">Registration No</label>
+                            <input type="text" id="regNo" name="regNo" [(ngModel)]="clientObj.regNo" class="form-control">
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-6">
+                                <button class="btn btn-success w-100" [disabled]="clientForm.invalid" (click)="onSaveClient()">
+                                    {{clientObj.clientId != 0 ? 'Update' : 'Save'}}
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-danger w-100">Reset</button>
+                            </div>
                         </div>
                         
                     </div>
-                    <div class="col-6">
-                        <label for="">Company Name</label>
-                        <input type="text" [(ngModel)]="clientObj.companyName" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">Cotact Number</label>
-                        <input type="tel" [(ngModel)]="clientObj.contactNo" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">City</label>
-                        <input type="text" [(ngModel)]="clientObj.city" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">State</label>
-                        <input type="text" [(ngModel)]="clientObj.state" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">Pincode</label>
-                        <input type="number"[(ngModel)]="clientObj.pincode" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">Address</label>
-                        <textarea name="" id="" cols="30" rows="3"[(ngModel)] = "clientObj.address" class="form-control"></textarea>
-                    </div>
-                    <div class="col-6">
-                        <label for="">Employee Strength</label>
-                        <input type="text" [(ngModel)]="clientObj.employeeStrength" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">GST No</label>
-                        <input type="text" [(ngModel)]="clientObj.gstNo" class="form-control">
-                    </div>
-                    <div class="col-6">
-                        <label for="">Registration No</label>
-                        <input type="text" [(ngModel)]="clientObj.regNo" class="form-control">
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <button class="btn btn-success w-100" (click)="onSaveClient()">
-                                {{clientObj.clientId != 0 ? 'Update' : 'Save'}}
-                            </button>
-                        </div>
-                        <div class="col-6">
-                            <button class="btn btn-danger w-100">Reset</button>
-                        </div>
-                    </div>
-                    
-
-
-                </div>
+                </form>
             </div>
         </div>
     </div>
