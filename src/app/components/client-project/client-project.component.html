@@ -38,48 +38,73 @@
                 New Client Project
             </div>
             <div class="card-body">
-                <form #projectForm="ngForm">
+                <form [formGroup]="projectForm">
                     <div class="row">
                         <div class="col-6">
-                            <label for="empName">Employee Name</label>
-                            <input type="text" id="empName" name="empName" [(ngModel)]="projectObj.empName" class="form-control" required>
-                        </div>
-                        <div class="col-6">
-                            <label for="empId">Employee ID</label>
-                            <input type="number" id="empId" name="empId" [(ngModel)]="projectObj.empId" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="empCode">Employee Code</label>
-                            <input type="text" id="empCode" name="empCode" [(ngModel)]="projectObj.empCode" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="empEmailId">Employee Email</label>
-                            <input type="email" id="empEmailId" name="empEmailId" [(ngModel)]="projectObj.empEmailId" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="empDesignation">Designation</label>
-                            <input type="text" id="empDesignation" name="empDesignation" [(ngModel)]="projectObj.empDesignation" class="form-control">
-                        </div>
-                        <div class="col-6">
                             <label for="projectName">Project Name</label>
-                            <input type="text" id="projectName" name="projectName" [(ngModel)]="projectObj.projectName" class="form-control">
+                            <input type="text" id="projectName"   formControlName="projectName" class="form-control">
+                            <div class="text-danger">
+                                @if(projectForm.controls['projectName'].invalid && projectForm.controls['projectName'].touched){
+                                    <small>this is required</small>
+                                }
+                                @if(projectForm.controls['projectName'].errors?.['minlength']){
+                                    <small>Project Name must be at least 3 characters long</small>
+                                }
+                            </div>
                         </div>
                         <div class="col-6">
                             <label for="startDate">Start Date</label>
-                            <input type="date" id="startDate" name="startDate" [(ngModel)]="projectObj.startDate" class="form-control">
+                            <input type="date" id="startDate"   formControlName="startDate" class="form-control">
                         </div>
                         <div class="col-6">
                             <label for="expectedEndDate">Expected End Date</label>
-                            <input type="date" id="expectedEndDate" name="expectedEndDate" [(ngModel)]="projectObj.expectedEndDate" class="form-control">
+                            <input type="date" id="expectedEndDate"   formControlName="expectedEndDate" class="form-control">
                         </div>
                         <div class="col-6">
-                            <label for="clientName">Client Name</label>
-                            <input type="text" id="clientName" name="clientName" [(ngModel)]="projectObj.clientName" class="form-control">
+                            <label for="empName">Contact Name</label>
+                            <input type="text" id="empName"    formControlName="contactPerson" class="form-control" required>
+                        </div>
+                        <div class="col-6">
+                            <label for="empId">Employee Mobile</label>
+                            <input type="number" id="empId"   formControlName="contactPersonContactNo" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="empCode">Contact Email</label>
+                            <input type="text" id="empCode"   formControlName="contactPersonEmailId" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="empEmailId">Total Employee</label>
+                            <input type="email" id="empEmailId"   formControlName="totalEmpWorking" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="empDesignation">Project Cost</label>
+                            <input type="text" id="empDesignation"   formControlName="projectCost" class="form-control">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="clientName">Project Description</label>
+                            <textarea  cols="10" rows="3" formControlName="projectDetails" class="form-control"></textarea>
+                        </div>
+                        <div class="col-6">
+                            <label for="clientName">Select Client</label>
+                            <select formControlName="clientId" formControlName="clientId" class="form-control">
+                                @for(client of clientList; track $index){
+                                    <option value="{{client.clientId}}">{{client.companyName}}</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="clientName">Lead By</label>
+                            <select formControlName="leadBy" formControlName="leadByEmpId" class="form-control">
+                                @for(employee of employeeList; track $index){
+                                    <option value="{{employee.empId}}">{{employee.empName}}</option>
+                                }
+                            </select>
                         </div>
                         <div class="row mt-3">
                             <div class="col-6">
-                                <button class="btn btn-primary w-100" [disabled]="projectForm.invalid" (click)="onSaveProject()">
-                                    {{ projectObj.clientProjectId ? 'Update' : 'Save' }}
+                                <button class="btn btn-primary w-100" (click)="onSaveProject()">
+                                   Save
                                 </button>
                             </div>
                             <div class="col-6">
