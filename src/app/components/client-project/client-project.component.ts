@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Signal, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ClientProject } from '../../model/class/client-project';
+import { ClientProject } from '../../model/interface/role';
 import { ClientProjectService } from '../../services/client-project.service';
 import { APIResponseModel, Employee } from '../../model/interface/role';
 import { ClientService } from '../../services/client.service';
@@ -36,7 +36,10 @@ export class ClientProjectComponent implements OnInit {
 
   employeeList: Employee[] = [];
   clientList: Client[] = [];
-  projectList: ClientProject[] = [];
+  projectList = signal<ClientProject[]>([]);
+
+  heading = signal('Client Project List');
+  
   ngOnInit(): void {
     this.getAllEmployee();
     this.getAllClient();
@@ -58,7 +61,7 @@ export class ClientProjectComponent implements OnInit {
     this.clientProjectService
       .getAllClientProjects()
       .subscribe((res: APIResponseModel) => {
-        this.projectList = res.data;
+        this.projectList.set(res.data);
       });
   }
   onSaveProject() {
@@ -78,6 +81,8 @@ export class ClientProjectComponent implements OnInit {
   }
   onDeleteProject(projectId: number) {}
   onEditProject(project: ClientProject) {}
-
+  changeHeading() {
+    this.heading.set('Client Project new List');
+  }
 
 }

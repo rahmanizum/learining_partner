@@ -2,7 +2,8 @@
     <div class="col-8">
         <div class="card">
             <div class="card-header bg-primary p-1 text-center text-white">
-                Client Project List
+                {{heading()}}
+                <button class="btn btn-warning float-end" (click)="changeHeading()">Change heading</button>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
@@ -17,17 +18,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let project of projectList; index as i">
-                            <td>{{ i + 1 }}</td>
-                            <td>{{ project.projectName }}</td>
-                            <td>{{ project.startDate | date: 'yyyy-MM-dd'}}</td>
-                            <td>{{ project.expectedEndDate | date: 'yyyy-MM-dd'}}</td>
-                            <td>{{ project.clientName }}</td>
-                            <td>
-                                <button class="btn btn-danger me-2" (click)="onDeleteProject(project.clientProjectId)">Delete</button>
-                                <button class="btn btn-success" (click)="onEditProject(project)">Edit</button>
-                            </td>
-                        </tr>
+                        @for (project of projectList(); track $index) {
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ project.projectName }}</td>
+                                <td>{{ project.startDate | date: 'yyyy-MM-dd'}}</td>
+                                <td>{{ project.expectedEndDate | date: 'yyyy-MM-dd'}}</td>
+                                <td>{{ project.clientName }}</td>
+                                <td>
+                                    <button class="btn btn-danger me-2" (click)="onDeleteProject(project.clientProjectId)">Delete</button>
+                                    <button class="btn btn-success" (click)="onEditProject(project)">Edit</button>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
