@@ -1,11 +1,6 @@
+
 <div class="row p-3">
-    <div class="col-12">
-        <ul>
-            @for(item of userList$ | async; track $index){
-                <li>{{item.username}}</li>
-            }
-        </ul>
-    </div>
+    <app-alert [alertType]="'success'" [alertMessage]="'Its successful message'"></app-alert>
     <div class="col-8">
         <div class="card">
             <div class="card-headrer bg-success p-1 text-center">

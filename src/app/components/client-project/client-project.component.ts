@@ -6,11 +6,12 @@ import { ClientProjectService } from '../../services/client-project.service';
 import { APIResponseModel, Employee } from '../../model/interface/role';
 import { ClientService } from '../../services/client.service';
 import { Client } from '../../model/class/client';
+import { AlertComponent } from "../../reusableComponent/alert/alert.component";
 
 @Component({
   selector: 'app-client-project',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, AlertComponent],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.css',
 })
