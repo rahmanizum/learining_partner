@@ -100,12 +100,10 @@
                         </div>
                         <div class="row mt-3">
                             <div class="col-6">
-                                <button class="btn btn-success w-100" [disabled]="clientForm.invalid" (click)="onSaveClient()">
-                                    {{clientObj.clientId != 0 ? 'Update' : 'Save'}}
-                                </button>
+                                <app-my-button btnClass="btn btn-success w-100" [btnText]="clientObj.clientId != 0 ? 'Update' : 'Save'" (onBtnClicked)="onSaveClient()" ></app-my-button>
                             </div>
                             <div class="col-6">
-                                <button class="btn btn-danger w-100" (click)="onResetForm()">Reset</button>
+                                <app-my-button btnText="Reset" btnClass="btn btn-danger w-100" (onBtnClicked)="onResetForm()"></app-my-button>
                             </div>
                         </div>
                         

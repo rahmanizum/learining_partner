@@ -6,10 +6,11 @@ import { APIResponseModel } from '../../model/interface/role';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { AlertComponent } from "../../reusableComponent/alert/alert.component";
+import { MyButtonComponent } from "../../reusableComponent/my-button/my-button.component";
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule, CommonModule, AsyncPipe, AlertComponent],
+  imports: [FormsModule, CommonModule, AsyncPipe, AlertComponent, MyButtonComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css',
 })
