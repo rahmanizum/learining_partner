@@ -9,5 +9,9 @@ export const Constant = {
         DELETE_CLIENT : "DeleteClientByClientId",
         DELETE_EMPLOYEE : "DeleteEmployeeByEmployeeId",
         GET_ALL_CLIENT_PROJECT : "GetAllClientProjects"
+    },
+    VALIDATION_MESSAGES : {
+        REQUIRED : "Name is required",
     }
+
 }
