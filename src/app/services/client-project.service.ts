@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { APIResponseModel } from '../model/interface/role';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
-import { ClientProject } from '../model/class/client-project';
+import { ClientProject } from '../model/interface/role';
 import { Constant } from '../constant/Constant';
 
 @Injectable({
