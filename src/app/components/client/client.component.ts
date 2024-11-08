@@ -3,14 +3,13 @@ import { Client } from '../../model/class/client';
 import { FormsModule } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
 import { APIResponseModel } from '../../model/interface/role';
-import { AsyncPipe, CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { AlertComponent } from "../../reusableComponent/alert/alert.component";
 import { MyButtonComponent } from "../../reusableComponent/my-button/my-button.component";
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule, CommonModule, AsyncPipe, AlertComponent, MyButtonComponent],
+  imports: [AlertComponent, FormsModule, MyButtonComponent],
   templateUrl: './client.component.html',
   styleUrl: './client.component.css',
 })
